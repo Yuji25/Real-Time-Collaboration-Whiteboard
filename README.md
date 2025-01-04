@@ -2,7 +2,7 @@
 
 A powerful, real-time collaborative whiteboard application that enables multiple users to draw, sketch, and brainstorm together seamlessly. Built with Node.js, Express, and Socket.IO for real-time collaboration.
 
-![Collaborative Whiteboard Demo](assets/others/main.png)
+![Collaborative Whiteboard Demo](https://github.com/Yuji25/Real-Time-Collaboration-Whiteboard/blob/main/public/assets/others/main.png?raw=true)
 
 ## ✨ Features
 
