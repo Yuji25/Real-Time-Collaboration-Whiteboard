@@ -2,7 +2,7 @@
 
 A powerful, real-time collaborative whiteboard application that enables multiple users to draw, sketch, and brainstorm together seamlessly. Built with Node.js, Express, and Socket.IO for real-time collaboration.
 
-![Collaborative Whiteboard Demo](assets/icons/menu.png)
+![Collaborative Whiteboard Demo](assets/others/main.png)
 
 ## ✨ Features
 
@@ -34,6 +34,25 @@ A powerful, real-time collaborative whiteboard application that enables multiple
 ### Prerequisites
 - Node.js (v12 or higher)
 - npm (Node Package Manager)
+
+## 🌐 Live Demo
+
+Try out the whiteboard right now! The project is deployed and accessible online.
+
+### Live URL: [Real-Time Collaborative Whiteboard](https://real-time-collaboration-whiteboard.onrender.com)
+
+#### How to test the live collaboration:
+1. Open the URL in two different browsers or devices
+2. Start drawing in one window
+3. See your changes appear instantly in the other window
+4. Try out different features like:
+   - Drawing with different colors
+   - Using the eraser
+   - Clearing the canvas
+   - Testing undo/redo
+   - Switching to fullscreen mode
+
+> Note: The live demo is hosted on Render, so it might take a few seconds to wake up if it hasn't been accessed recently.
 
 ### Installation
 
@@ -138,14 +157,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Support
-
-For support, email your.email@example.com or open an issue on GitHub.
-
 ## 🙏 Acknowledgments
 
 - Socket.IO team for the amazing real-time engine
@@ -155,6 +166,6 @@ For support, email your.email@example.com or open an issue on GitHub.
 ---
 
 <div align="center">
-Made with ❤️ by [Your Name]
+Made with ❤️ by Lavanya Soni
 </div>
 
