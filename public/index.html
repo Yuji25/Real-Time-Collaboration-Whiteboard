@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiteboard</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="overdiv.css">
+
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/8585c17760.js" crossorigin="anonymous"></script>
+
+    <!--  jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Tools section -->
+        <div class="tools-bar">
+            <button class="open-tools" title="Tools">
+                <img src="assets/icons/menu.png" class="open"/>
+                <img src="assets/icons/exit.png" class="close"/>
+            </button>
+
+            <div class="tools">
+
+                <!-- Pens -->
+                <button class="tool-btn pen" id="pen" title="Pen">
+                    <span><img src="assets/icons/pen.png"></span>
+                    <i class="fa fa-angle-up"></i>
+                </button>
+
+                <div id="pen-dropdown" class="dropdown">
+                    <div class="dropdown-items">
+                        <input type="range" id="pen-width" min="1" max="50" value="7">
+                        <span class="pen-width-value" style="display: none;">7</span>
+                    </div>
+                    <div class="dropdown-items">
+                        <button class="color-switch selected-color" style="background: #000000;" data-color="#000000"></button>
+                        <button class="color-switch" style="background: #FF0000;" data-color="#FF0000"></button>
+                        <button class="color-switch" style="background: #00FF00;" data-color="#00FF00"></button>
+                        <button class="color-switch" style="background: #0000FF;" data-color="#0000FF"></button>
+                        <button class="color-switch" style="background: #FFFFFF;" data-color="#FFFFFF"></button>
+                        <button class="color-switch" style="background: #FF00FF;" data-color="#FF00FF"></button>
+                        <button class="color-switch" style="background: #00FFFF;" data-color="#00FFFF"></button>
+                    </div>
+                    <div class="dropdown-items-btn">
+                        <button class="other-tools" id="pen"><i class="fa-solid fa-pencil"></i> Pen</button>
+                        <!-- <button class="other-tools" id="highlighter"><i class="fa-solid fa-highlighter"></i> Highlighter</button> -->
+                        <button class="other-tools" id="pointer"><i class="fa-solid fa-circle"></i> Pointer</button>
+                        <button class="other-tools" id="eraser"><i class="fa-solid fa-eraser"></i> Eraser</button>
+                        <button class="other-tools" id="trash"><i class="fa-solid fa-trash"></i> Erase All</button>
+                        <button class="other-tools" id="shape"><i class="fa-solid fa-shapes"></i> Shapes</button>
+                        <select id="shape-select" style="display: none;">
+                            <option value="rectangle">Rectangle</option>
+                            <option value="circle">Circle</option>
+                            <option value="line">Line</option>
+                            <option value="triangle">Triangle</option>
+                        </select>
+                        <button class="other-tools" id="text"><i class="fa-solid fa-font"></i> Text</button>
+                        <button class="other-tools" id="save"><i class="fa-solid fa-download"></i> Save</button>
+                        <button class="other-tools" id="voice">
+                            <i class="fa-solid fa-microphone"></i> Start Recording
+                        </button>
+                        <div id="voice-status" class="voice-status" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <!-- Live Chat -->
+                <!-- <button class="tool-btn live_chat" id="live_chat" title="Live Chat">
+                    <span><img src="assets/icons/messages.png"></span>
+                </button> -->
+
+                <!-- Undo -->
+                <button class="tool-btn undo" id="undo" title="Undo">
+                    <span><img src="assets/icons/undo.png"></span>
+                </button>
+
+                <!-- Redo -->
+                <button class="tool-btn redo" id="redo" title="Redo">
+                    <span style="transform: scaleX(-1);"><img src="assets/icons/undo.png"></span>
+                </button>
+
+                <!-- Screen Toggle -->
+                <button class="dual-tool-btn" id="screen-toggle">
+                    <img src="assets/icons/fullscreen.png" class="screen-max" title="Fullscreen">
+                    <img src="assets/icons/shortscreen.png" class="screen-min" title="Exit Fullscreen">
+                </button>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="main-area">
+
+            <!-- Content Section -->
+            <div class="content-section" id="content-area">
+                <canvas id="whiteboard"></canvas>
+            </div>
+
+            <!-- Chat Section -->
+            <!-- <div class="chat-section">
+                <div class="chat-box-btn">
+                    <button class="chat-btn" title="Mute Chat">
+                        <img src="assets/icons/mute-chat.png">
+                    </button>
+                </div>
+
+                <div id="chat-messages"></div>
+                <div class="send-msg-box">
+                    <textarea placeholder="Chat here...." id="user-message"></textarea>
+                    <button class="chat-btn" title="Send Message">
+                        <img src="assets/icons/send.png" >
+                    </button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="overdiv">
+        <div class="popup alert">
+            <img src="assets/icons/alert.gif" alt="Alert">
+            <p>Do you really want to erase all ?</p>
+            <div class="overBtns">
+                <button id="yesBtn">Yes</button>
+                <button id="noBtn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js" integrity="sha512-8BHxHDLsOHx+flIrQ0DrZcea7MkHqRU5GbTHmbdzMRnAaoCIkZ97PqZcXJkKZckMMhqfoeaJE+DNUVuyoQsO3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+    <script src="functions.js"></script>
+    <script src="screenSize.js"></script>
+    <script src="whiteboard-enhanced.js"></script>
+    <script src="voice-notes-integration.js"></script>
+</body>
+</html>
